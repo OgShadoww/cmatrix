@@ -3,26 +3,21 @@
 #include<unistd.h>
 #include<time.h>
 
-struct strem {
+struct matrixStream {
   int y; // For head
   int x; // For row
+  int length; // For stream lenght 
   char str[100]; // For stream of characters
-}
+};
 
 int main() {
-  char symbol1 = (rand() % (126 - 33 + 1)) + 33;
-  char symbol2 = (rand() % (126 - 33 + 1)) + 33;
-  char symbol3 = (rand() % (126 - 33 + 1)) + 33;
+  char symbol = (rand() % (126 - 33 + 1)) + 33;
 
   while(1) {
-  //  printf("\e[4;1H\e[2J");
    usleep(50000);
-   printf("%c ", symbol1);
-   printf("%c ", symbol2);
-   printf("%c \n", symbol3);
-   symbol1 = (rand() % (126 - 33 + 1) + 33);
-   symbol2 = (rand() % (126 - 33 + 1) + 33);
-   symbol3 = (rand() % (126 - 33 + 1) + 33);
+   printf("\33[2J\33[H");
+   printf("%c \n", symbol);
+   symbol = (rand() % (126 - 33 + 1) + 33);
   }
   
   return 0;
